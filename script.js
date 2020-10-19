@@ -19,18 +19,12 @@ function writePassword() {
     while (isCharacterNumberOk) {
       numOfCharacter = prompt("How many characters would you like your password contain?");
 
-
       if (parseInt(numOfCharacter) < 8 || parseInt(numOfCharacter) > 128) {
         alert("Choose character number between 8 and 128")
       } else {isCharacterNumberOk = false;}
       
       isNan=isNaN(numOfCharacter);
-      counter++
-      if (counter == 3) {
-        alert("You didn't enter any number.You are quitting pass-gen.")
-        isCharacterNumberOk = false;
-        isNan=false;
-      }
+         
       if (isNan) {
         alert("Please enter a number between 8 and 128"); isCharacterNumberOk = true
       }
@@ -46,7 +40,7 @@ function writePassword() {
     var typeOfCharacters = [];
     var count = 0;
     var isGenerate;
-    while (!( isSpecial || isNumeric || isUppercase || isLowercase || isGenerate || (numOfCharacter == null) || (isNaN(numOfCharacter)))) {
+    while (!( isSpecial || isNumeric || isUppercase || isLowercase || isGenerate || (numOfCharacter == null) || (isNaN(numOfCharacter))  ) ) {
       alert("Please choose an option to generate password.")
 
       var isSpecial = confirm("Click ok to confirm including 'special' characters");
