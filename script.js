@@ -36,7 +36,7 @@ var isGenerate;
     var isUppercase = confirm("Click ok to confirm including 'UPPERCASE' characters ");
     var isLowercase = confirm("Click ok to confirm including 'lowercase' characters ");
     count++;
-    if(count==3){
+    if(count==2){
        isGenerate=true;
        alert("You didn't choose any options.You are quitting pass-gen.")
     }
