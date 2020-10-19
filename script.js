@@ -14,25 +14,38 @@ function writePassword() {
     var numOfCharacter;
     while (isCharacterNumberOk) {
       numOfCharacter = prompt("How many characters would you like your password contain?");
-      // if(numOfCharacter==null){break;}
+    
       if (parseInt(numOfCharacter) < 8 || parseInt(numOfCharacter) > 128) {
         alert("Choose character number between 8 and 128")
       } else  isCharacterNumberOk = false;
     }
+    
+
+    if(numOfCharacter==null){
+      alert("You didn't choose any options.You are quitting pass-gen.")
+    }
 
     var typeOfCharacters = [];
-
+var count=0;
+var isGenerate;
+    while(! (isSpecial || isNumeric||isUppercase || isLowercase || isGenerate||  (numOfCharacter==null)) ){
+      alert("Please choose an option to generate password.")
+      
     var isSpecial = confirm("Click ok to confirm including 'special' characters");
     var isNumeric = confirm("Click ok to confirm including 'numeric' characters ");
     var isUppercase = confirm("Click ok to confirm including 'UPPERCASE' characters ");
-    var isLowercasev = confirm("Click ok to confirm including 'lowercase' characters ");
+    var isLowercase = confirm("Click ok to confirm including 'lowercase' characters ");
+    count++;
+    if(count==3){
+       isGenerate=true;
+       alert("You didn't choose any options.You are quitting pass-gen.")
+    }
 
-
+  }
     var upperCaseCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     var lowerCaseCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
     var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     var specialCharacters = ['!', '@', '#', '$', '%'];
-
 
 
     if (isSpecial) {
@@ -44,10 +57,10 @@ function writePassword() {
     if (isUppercase) {
       typeOfCharacters.push(upperCaseCharacters);
     }
-    if (isLowercasev) {
+    if (isLowercase) {
       typeOfCharacters.push(lowerCaseCharacters);
     }
-
+  
     // alert(typeOfCharacters);
 
      passW = new Array(numOfCharacter);
