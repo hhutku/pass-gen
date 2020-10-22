@@ -12,13 +12,13 @@ function writePassword() {
 
 
     var isCharacterNumberOk = true;
-    var numOfCharacter;
-    var counter = 0;
+    var numOfCharacter=0;
+    
 
     var isNan;
     while (isCharacterNumberOk) {
       numOfCharacter = prompt("How many characters would you like your password contain?");
-
+   
       if (parseInt(numOfCharacter) < 8 || parseInt(numOfCharacter) > 128) {
         alert("Choose character number between 8 and 128")
       } else {isCharacterNumberOk = false;}
@@ -26,21 +26,21 @@ function writePassword() {
       isNan=isNaN(numOfCharacter);
          
       if (isNan) {
-        alert("Please enter a number between 8 and 128"); isCharacterNumberOk = true
+        alert("Please enter a number between 8 and 128"); isCharacterNumberOk = true;
       }
-       
+      if (numOfCharacter == null) {
+        alert("You didn't choose any options.You are quitting pass-gen.")
+      } 
       
     }
 
 
-    if (numOfCharacter == null) {
-      alert("You didn't choose any options.You are quitting pass-gen.")
-    }
 
     var typeOfCharacters = [];
     var count = 0;
     var isGenerate;
-    while (!( isSpecial || isNumeric || isUppercase || isLowercase || isGenerate || (numOfCharacter == null) || (isNaN(numOfCharacter))  ) ) {
+    // while (!( isSpecial || isNumeric || isUppercase || isLowercase || isGenerate || (numOfCharacter == null) || (isNaN(numOfCharacter))  ) ) {
+    while (!( isSpecial || isNumeric || isUppercase || isLowercase || isGenerate || (numOfCharacter == null)  ) ) {
       alert("Please choose an option to generate password.")
 
       var isSpecial = confirm("Click ok to confirm including 'special' characters");
@@ -54,6 +54,7 @@ function writePassword() {
       }
 
     }
+
     var upperCaseCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
     var lowerCaseCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
     var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -73,7 +74,7 @@ function writePassword() {
       typeOfCharacters.push(lowerCaseCharacters);
     }
 
-    if((isNaN(numOfCharacter))){numOfCharacter=""};
+    // if((isNaN(numOfCharacter))){numOfCharacter=""};
 
     passW = new Array(numOfCharacter);
     var lengthOfTypeOfCharacter = typeOfCharacters.length;
